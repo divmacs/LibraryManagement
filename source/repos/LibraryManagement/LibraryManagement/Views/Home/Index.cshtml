@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.timepicker.min.css" rel="stylesheet" />
+<script src="~/Scripts/home.js"></script>
+<body>
+    <h2>Library Management</h2>
+    <div class="container" ng-app="homeApp" ng-controller="homeController">
+        <form class="form-horizontal">
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Checkout Date : </label>
+                    <input type="date" id="fromDate"  name="checkoutdate" ng-model="fromDate" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Return Date : </label>
+                    <input type="date" id="toDate" name="returndate" ng-model="toDate" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <label class="control-label">Select Country : </label>
+                    <select ng-model="country" ng-change="SelectedCountry(country)" class="form-control">
+                        <option value="1" selected>India</option>
+                        <option value="2">USA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-info" ng-click="Calculate()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
